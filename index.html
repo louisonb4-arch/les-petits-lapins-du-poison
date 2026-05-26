@@ -263,6 +263,79 @@
   /* sprig glyph */
   .sprig-svg { width: 18px; height: 18px; display: inline-block; vertical-align: -4px; }
 
+  /* ── recipes ── */
+  section.recipes { background: var(--cream-deep); width: 100%; }
+  .recipes-inner { max-width: 1200px; margin: 0 auto; padding: 72px clamp(24px, 5vw, 48px) 80px; }
+  .recipe-grid { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .recipe-card {
+    background: var(--cream-soft); border-radius: 20px;
+    overflow: hidden; box-shadow: var(--shadow-card);
+  }
+  .recipe-card-top {
+    background: var(--green-800); color: var(--cream);
+    padding: 22px 26px 18px; position: relative;
+  }
+  .recipe-card-icon {
+    position: absolute; top: 18px; right: 22px;
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .recipe-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--green-300); margin-bottom: 4px;
+  }
+  .recipe-name {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 700; color: var(--cream); margin: 0; letter-spacing: -0.3px;
+  }
+  .recipe-body { padding: 24px 26px 28px; }
+  .recipe-section {
+    display: flex; align-items: center; gap: 10px;
+    margin: 20px 0 12px;
+  }
+  .recipe-section:first-child { margin-top: 0; }
+  .recipe-section-badge {
+    background: var(--green-700); color: var(--cream);
+    border-radius: 999px; padding: 4px 14px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .recipe-section-line { flex: 1; height: 1px; background: var(--line); }
+  .recipe-ingredients {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px;
+    list-style: none; padding: 0; margin: 0;
+  }
+  .recipe-ingredients li {
+    font-size: 13px; color: var(--ink-soft); padding: 4px 0;
+    padding-left: 14px; position: relative; line-height: 1.4;
+  }
+  .recipe-ingredients li::before {
+    content: '·'; position: absolute; left: 2px; color: var(--green-700); font-weight: 700;
+  }
+  .recipe-steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .recipe-steps li {
+    font-size: 13px; color: var(--ink-soft); line-height: 1.5;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .recipe-steps li .step-num {
+    background: var(--green-700); color: var(--cream);
+    border-radius: 50%; width: 20px; height: 20px; min-width: 20px;
+    font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .recipe-steps li strong { color: var(--ink); }
+  .recipe-tip {
+    margin-top: 18px; background: rgba(201,213,165,0.28);
+    border-radius: 12px; padding: 14px 16px;
+    border-left: 3px solid var(--green-500);
+  }
+  .recipe-tip-label {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--green-700); margin-bottom: 5px;
+  }
+  .recipe-tip p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; font-style: italic; }
+
   /* ── bio badge ── */
   .bio-badge {
     display: flex; width: fit-content; align-items: center; gap: 8px;
@@ -377,6 +450,7 @@
     .feature .icon img { width: 60px; height: 60px; }
 
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .recipe-grid { grid-template-columns: 1fr; gap: 20px; }
     .products-deco-left, .products-deco-right { z-index: 0; }
     .products-inner { position: relative; z-index: 1; }
     .story-bunny { display: none; }
@@ -453,6 +527,7 @@
       <a href="#accueil" class="active">Accueil</a>
       <a href="#histoire">Notre histoire</a>
       <a href="#produits">Nos produits</a>
+      <a href="#recettes">Recettes</a>
       <a href="#histoire">La ferme</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -477,6 +552,7 @@
     <a href="#accueil" class="mobile-nav-link">Accueil</a>
     <a href="#histoire" class="mobile-nav-link">Notre histoire</a>
     <a href="#produits" class="mobile-nav-link">Nos produits</a>
+    <a href="#recettes" class="mobile-nav-link">Recettes</a>
     <a href="#histoire" class="mobile-nav-link">La ferme</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
     <a href="#contact" class="btn mobile-nav-btn">Nous contacter</a>
@@ -498,7 +574,7 @@
           </svg>
           Agriculture Biologique · Certifié AB
         </div>
-        <span class="script">De notre ferme à votre table</span>
+        <span class="script">De notre ferme a votre table</span>
         <h1>Une viande saine,<br/>locale et <span class="accent">responsable.</span></h1>
         <p class="lead">Nos lapins sont élevés avec soin, dans le respect de leur bien-être et de la nature.</p>
         <a href="#produits" class="btn">
@@ -615,6 +691,122 @@
           <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
         </svg>
       </a>
+    </div>
+  </div>
+  </section>
+
+  <!-- ══════════════ RECETTES ══════════════ -->
+  <section class="recipes" id="recettes">
+  <div class="recipes-inner">
+    <div class="section-head">
+      <span class="script">Nos recettes</span>
+      <h2>Cuisiner le lapin,<br/>c'est simple et <span class="accent">savoureux.</span></h2>
+    </div>
+
+    <div class="recipe-grid">
+
+      <!-- RECETTE 1 — BARBECUE -->
+      <div class="recipe-card">
+        <div class="recipe-card-top">
+          <div class="recipe-tag">Lapin mariné</div>
+          <h3 class="recipe-name">au barbecue</h3>
+          <div class="recipe-card-icon">🔥</div>
+        </div>
+        <div class="recipe-body">
+
+          <div class="recipe-section">
+            <span class="recipe-section-badge">Ingrédients</span>
+            <span class="recipe-section-line"></span>
+          </div>
+          <ul class="recipe-ingredients">
+            <li>1 lapin découpé en morceaux</li>
+            <li>4 c. à soupe d'huile d'olive</li>
+            <li>2 gousses d'ail hachées</li>
+            <li>Le jus d'un citron</li>
+            <li>1 c. à soupe de moutarde</li>
+            <li>1 c. à soupe de miel</li>
+            <li>Thym, romarin</li>
+            <li>Sel, poivre</li>
+          </ul>
+
+          <div class="recipe-section">
+            <span class="recipe-section-badge">Marinade</span>
+            <span class="recipe-section-line"></span>
+          </div>
+          <ol class="recipe-steps">
+            <li><span class="step-num">1</span><span>Mélanger l'huile, le citron, l'ail, la moutarde et le miel.</span></li>
+            <li><span class="step-num">2</span><span>Ajouter le thym, le romarin, le sel et le poivre.</span></li>
+            <li><span class="step-num">3</span><span>Badigeonner les morceaux de lapin. Laisser mariner <strong>au minimum 2 heures</strong>, idéalement toute une nuit.</span></li>
+          </ol>
+
+          <div class="recipe-section">
+            <span class="recipe-section-badge">Cuisson</span>
+            <span class="recipe-section-line"></span>
+          </div>
+          <ol class="recipe-steps">
+            <li><span class="step-num">1</span><span>Préchauffer le barbecue, déposer le lapin à côté des braises (cuisson indirecte).</span></li>
+            <li><span class="step-num">2</span><span>Retourner régulièrement pendant <strong>35 à 45 minutes</strong>.</span></li>
+            <li><span class="step-num">3</span><span>Badigeonner avec le reste de marinade en cours de cuisson.</span></li>
+            <li><span class="step-num">4</span><span>Terminer quelques minutes au-dessus des braises pour dorer.</span></li>
+          </ol>
+
+          <div class="recipe-tip">
+            <div class="recipe-tip-label">✦ Le secret</div>
+            <p>Cuisson douce et régulière pour un lapin tendre et juteux, bien doré à l'extérieur.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECETTE 2 — PLANCHA -->
+      <div class="recipe-card">
+        <div class="recipe-card-top">
+          <div class="recipe-tag">Alternative</div>
+          <h3 class="recipe-name">a la plancha</h3>
+          <div class="recipe-card-icon">🥩</div>
+        </div>
+        <div class="recipe-body">
+
+          <div class="recipe-section">
+            <span class="recipe-section-badge">Ingrédients</span>
+            <span class="recipe-section-line"></span>
+          </div>
+          <ul class="recipe-ingredients">
+            <li>1 lapin découpé en morceaux</li>
+            <li>3 c. à soupe d'huile d'olive</li>
+            <li>2 gousses d'ail hachées</li>
+            <li>1 c. à café de paprika fumé</li>
+            <li>Herbes de Provence</li>
+            <li>Sel, poivre</li>
+          </ul>
+
+          <div class="recipe-section">
+            <span class="recipe-section-badge">Marinade</span>
+            <span class="recipe-section-line"></span>
+          </div>
+          <ol class="recipe-steps">
+            <li><span class="step-num">1</span><span>Mélanger l'huile, l'ail, le paprika et les herbes.</span></li>
+            <li><span class="step-num">2</span><span>Assaisonner avec sel et poivre.</span></li>
+            <li><span class="step-num">3</span><span>Enrober les morceaux de lapin. Laisser mariner <strong>1 à 2 heures</strong> au frais.</span></li>
+          </ol>
+
+          <div class="recipe-section">
+            <span class="recipe-section-badge">Cuisson</span>
+            <span class="recipe-section-line"></span>
+          </div>
+          <ol class="recipe-steps">
+            <li><span class="step-num">1</span><span>Faire chauffer la plancha à feu moyen. Huiler légèrement.</span></li>
+            <li><span class="step-num">2</span><span>Déposer les morceaux et cuire environ <strong>25 à 30 minutes</strong>.</span></li>
+            <li><span class="step-num">3</span><span>Retourner régulièrement pour une cuisson uniforme.</span></li>
+            <li><span class="step-num">4</span><span>Servir bien doré avec un filet de citron.</span></li>
+          </ol>
+
+          <div class="recipe-tip">
+            <div class="recipe-tip-label">✦ Astuce</div>
+            <p>Ajouter quelques branches de thym frais sur la plancha pendant la cuisson pour parfumer davantage la viande.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
   </section>
