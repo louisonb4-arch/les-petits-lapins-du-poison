@@ -662,7 +662,7 @@
 
       <article class="card">
         <div class="photo">
-          <img src="photo-mere.png" alt="Rillettes de lapin BIO artisanales" />
+          <img src="photo-rillettes.png" alt="Rillettes de lapin BIO artisanales" />
         </div>
         <div class="body">
           <div class="title">Rillettes de lapin</div>
@@ -673,7 +673,7 @@
 
       <article class="card">
         <div class="photo">
-          <img src="photo-noir.png" alt="Terrine de lapin BIO artisanale" />
+          <img src="photo-terrine.png" alt="Terrine de lapin BIO artisanale" />
         </div>
         <div class="body">
           <div class="title">Terrine de lapin</div>
@@ -981,12 +981,12 @@
     'rillettes': {
       name: 'Rillettes de lapin',
       price: '4,50 € / pot · 200 g · 3 saveurs',
-      img: 'photo-mere.png',
+      img: 'photo-rillettes.png',
       desc: 'Rillettes artisanales préparées à la ferme à partir de lapin BIO effiloché. Certifié BIO (FR BIO 09). Disponibles en trois saveurs.',
       saveurs: [
-        { label: 'Nature', desc: 'Une recette classique et savoureuse, idéale à tartiner. Ingrédients : viande de lapin 80 %, gras de porc, sel, poivre, aromates. Produits issus de l\'agriculture biologique.' },
-        { label: 'Piment d\'Espelette', desc: 'Le caractère du piment d\'Espelette pour une touche relevée et gourmande. Ingrédients : viande de lapin 80 %, gras de porc, sel, piment d\'Espelette, poivre, aromates.' },
-        { label: 'Pineau des Charentes', desc: 'La douceur du Pineau des Charentes pour une recette subtile et raffinée. Ingrédients : viande de lapin 80 %, gras de porc, sel, Pineau des Charentes, poivre, aromates.' }
+        { label: 'Nature', img: 'photo-rillettes.png', desc: 'Une recette classique et savoureuse, idéale à tartiner. Ingrédients : viande de lapin 80 %, gras de porc, sel, poivre, aromates. Produits issus de l\'agriculture biologique.' },
+        { label: 'Piment d\'Espelette', img: 'photo-rillettes-piment.png', desc: 'Le caractère du piment d\'Espelette pour une touche relevée et gourmande. Ingrédients : viande de lapin 80 %, gras de porc, sel, piment d\'Espelette, poivre, aromates.' },
+        { label: 'Pineau des Charentes', img: 'photo-rillettes-pineau.png', desc: 'La douceur du Pineau des Charentes pour une recette subtile et raffinée. Ingrédients : viande de lapin 80 %, gras de porc, sel, Pineau des Charentes, poivre, aromates.' }
       ],
       composition: 'Viande de lapin 80 %, gras de porc, sel, poivre, aromates. Selon la saveur : piment d\'Espelette ou Pineau des Charentes. Produits issus de l\'agriculture biologique.',
       conservation: 'Conserver au réfrigérateur. À conserver de préférence avant la date indiquée sur le couvercle.',
@@ -995,7 +995,7 @@
     'terrine': {
       name: 'Terrine de lapin',
       price: '4,80 € / pot · 200 g',
-      img: 'photo-noir.png',
+      img: 'photo-terrine.png',
       desc: 'Une terrine onctueuse et parfumée, parfaite pour vos apéritifs. Certifié BIO (FR BIO 09).',
       composition: 'Viande et foie de lapin 62 %, gras de porc, oignons, ail, poivre, aromates. Produits issus de l\'agriculture biologique.',
       conservation: 'Conserver au réfrigérateur. À conserver de préférence avant la date indiquée sur le couvercle.',
@@ -1037,6 +1037,7 @@
           container.querySelectorAll('.saveur-btn').forEach(x => x.classList.remove('active'));
           b.classList.add('active');
           document.getElementById('modal-saveur-desc').textContent = s.desc;
+          if (s.img) { document.getElementById('modal-img').src = s.img; }
         };
         container.appendChild(b);
       });
