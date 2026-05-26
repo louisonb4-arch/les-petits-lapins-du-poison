@@ -274,15 +274,15 @@
   }
   .recipe-card-top {
     background: var(--green-800); color: var(--cream);
-    padding: 20px 24px 20px; position: relative;
-    display: flex; flex-direction: column; justify-content: flex-end; min-height: 96px;
+    padding: 24px 24px 20px;
+    display: flex; flex-direction: column; align-items: flex-start;
   }
   .recipe-card-icon {
-    position: absolute; top: 50%; right: 22px; transform: translateY(-50%);
-    width: 44px; height: 44px; border-radius: 50%;
-    background: rgba(255,255,255,0.13);
-    display: flex; align-items: center; justify-content: center; font-size: 22px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-top: 14px;
   }
+  .recipe-card-icon img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+  .recipe-card-icon-leaf { font-size: 18px; opacity: 0.55; letter-spacing: 2px; }
   .recipe-tag {
     font-size: 10px; font-weight: 700; letter-spacing: 1.6px;
     text-transform: uppercase; color: var(--green-300); margin-bottom: 5px;
@@ -300,13 +300,17 @@
   }
   .recipe-section:first-child { margin-top: 0; }
   .recipe-section-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--green-800); color: #fff;
-    border-radius: 999px; padding: 5px 14px 5px 10px;
-    font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-    white-space: nowrap; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 50%;
+    overflow: hidden; flex-shrink: 0;
   }
-  .recipe-section-badge .badge-icon { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .recipe-section-badge .badge-icon { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+  .recipe-section-title {
+    font-family: 'Inter', sans-serif; font-weight: 800;
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .recipe-section-line { display: none; }
   .recipe-section-line { flex: 1; height: 1px; background: rgba(35,77,32,0.12); }
 
   .recipe-ingredients {
@@ -781,7 +785,7 @@
         <div class="recipe-card-top">
           <div class="recipe-tag">Lapin mariné</div>
           <h3 class="recipe-name">au barbecue</h3>
-          <div class="recipe-card-icon">🔥</div>
+          <div class="recipe-card-icon"><span class="recipe-card-icon-leaf">🌿</span><img src="icon-badge-flamme.webp" alt="" /><span class="recipe-card-icon-leaf">🌿</span></div>
         </div>
         <div class="recipe-photo">
           <img src="recipe-bbq.webp" alt="Lapin au barbecue sur feu de bois" />
@@ -789,7 +793,7 @@
         <div class="recipe-body">
 
           <div class="recipe-section">
-            <span class="recipe-section-badge"><img src="icon-badge-panier.webp" class="badge-icon" alt="" /> Ingrédients</span>
+            <span class="recipe-section-badge"><img src="icon-badge-panier.webp" class="badge-icon" alt="" /></span><span class="recipe-section-title">Ingrédients</span>
             <span class="recipe-section-line"></span>
           </div>
           <ul class="recipe-ingredients">
@@ -804,7 +808,7 @@
           </ul>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge"><img src="icon-badge-mortier.webp" class="badge-icon" alt="" /> Préparation</span>
+            <span class="recipe-section-badge"><img src="icon-badge-mortier.webp" class="badge-icon" alt="" /></span><span class="recipe-section-title">Préparation</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -814,7 +818,7 @@
           </ol>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge"><img src="icon-badge-flamme.webp" class="badge-icon" alt="" /> Cuisson au barbecue</span>
+            <span class="recipe-section-badge"><img src="icon-badge-flamme.webp" class="badge-icon" alt="" /></span><span class="recipe-section-title">Cuisson au barbecue</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -862,7 +866,7 @@
         <div class="recipe-card-top">
           <div class="recipe-tag">Alternative</div>
           <h3 class="recipe-name">à la plancha</h3>
-          <div class="recipe-card-icon">🥩</div>
+          <div class="recipe-card-icon"><span class="recipe-card-icon-leaf">🌿</span><img src="icon-badge-spatule.webp" alt="" /><span class="recipe-card-icon-leaf">🌿</span></div>
         </div>
         <div class="recipe-photo">
           <img src="recipe-plancha.webp" alt="Lapin à la plancha, thym et citron" />
@@ -870,7 +874,7 @@
         <div class="recipe-body">
 
           <div class="recipe-section">
-            <span class="recipe-section-badge"><img src="icon-badge-panier.webp" class="badge-icon" alt="" /> Ingrédients</span>
+            <span class="recipe-section-badge"><img src="icon-badge-panier.webp" class="badge-icon" alt="" /></span><span class="recipe-section-title">Ingrédients</span>
             <span class="recipe-section-line"></span>
           </div>
           <ul class="recipe-ingredients">
@@ -883,7 +887,7 @@
           </ul>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge"><img src="icon-badge-mortier.webp" class="badge-icon" alt="" /> Préparation</span>
+            <span class="recipe-section-badge"><img src="icon-badge-mortier.webp" class="badge-icon" alt="" /></span><span class="recipe-section-title">Préparation</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -893,7 +897,7 @@
           </ol>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge"><img src="icon-badge-spatule.webp" class="badge-icon" alt="" /> Cuisson à la plancha</span>
+            <span class="recipe-section-badge"><img src="icon-badge-spatule.webp" class="badge-icon" alt="" /></span><span class="recipe-section-title">Cuisson à la plancha</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
