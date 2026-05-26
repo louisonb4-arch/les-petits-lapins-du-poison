@@ -348,6 +348,69 @@
   }
   .recipe-tip p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; font-style: italic; }
 
+  /* ── recipes extras ── */
+  .recipes-sup {
+    font-size: 15px; color: var(--ink-soft); margin: 0 0 2px; font-style: italic;
+  }
+  .recipes-subtitle-pill {
+    display: inline-flex; align-items: center;
+    background: var(--green-800); color: var(--cream);
+    border-radius: 999px; padding: 8px 24px;
+    font-size: 13px; font-weight: 500; margin-top: 16px; font-style: italic;
+    letter-spacing: 0.2px;
+  }
+  .recipe-photo {
+    height: 190px; overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .recipe-photo-bbq {
+    background: linear-gradient(150deg, #3d1a0a 0%, #7a3215 55%, #c45c1a 100%);
+  }
+  .recipe-photo-plancha {
+    background: linear-gradient(150deg, #1e2d10 0%, #3a5520 55%, #6a8a3a 100%);
+  }
+  .recipe-photo-emoji { font-size: 80px; opacity: 0.45; }
+  .recipe-photo-deco {
+    position: absolute; font-size: 26px; opacity: 0.25;
+  }
+  .recipe-photo-deco.tl { top: 16px; left: 18px; }
+  .recipe-photo-deco.br { bottom: 14px; right: 18px; }
+
+  .recipe-accomp {
+    margin-top: 24px; padding-top: 20px;
+    border-top: 1px dashed rgba(35,77,32,0.22);
+  }
+  .recipe-accomp-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.4px;
+    text-transform: uppercase; color: var(--green-800); margin-bottom: 14px;
+  }
+  .recipe-accomp-title::before,
+  .recipe-accomp-title::after { content: ''; flex: 1; height: 1px; background: rgba(35,77,32,0.18); }
+  .recipe-accomp-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  .recipe-accomp-item {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    background: var(--cream-deep); border-radius: 12px; padding: 12px 6px;
+    text-align: center;
+  }
+  .recipe-accomp-emoji { font-size: 26px; line-height: 1; }
+  .recipe-accomp-label { font-size: 10.5px; color: var(--ink-soft); line-height: 1.3; font-weight: 500; }
+
+  .recipe-tagline {
+    margin-top: 52px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 13.5px;
+    font-weight: 700; letter-spacing: 1.6px; color: var(--green-900);
+    text-transform: uppercase; opacity: 0.65;
+  }
+
+  @media (max-width: 600px) {
+    .recipe-accomp-grid { grid-template-columns: repeat(2, 1fr); }
+    .recipe-tagline { font-size: 12px; letter-spacing: 1px; margin-top: 36px; }
+    .recipes-subtitle-pill { font-size: 12px; padding: 7px 18px; }
+  }
+
   /* ── bio badge ── */
   .bio-badge {
     display: flex; width: fit-content; align-items: center; gap: 8px;
@@ -712,7 +775,9 @@
   <div class="recipes-inner">
     <div class="section-head">
       <span class="script">Nos recettes</span>
-      <h2>Cuisiner le lapin,<br/>c'est simple et <span class="accent">savoureux.</span></h2>
+      <p class="recipes-sup">2 façons savoureuses de cuisiner</p>
+      <h2>le <span class="accent">lapin</span></h2>
+      <div class="recipes-subtitle-pill">mariné, parfumé et cuit à la perfection !</div>
     </div>
 
     <div class="recipe-grid">
@@ -724,10 +789,15 @@
           <h3 class="recipe-name">au barbecue</h3>
           <div class="recipe-card-icon">🔥</div>
         </div>
+        <div class="recipe-photo recipe-photo-bbq" aria-hidden="true">
+          <span class="recipe-photo-deco tl">🌿</span>
+          <span class="recipe-photo-emoji">🔥</span>
+          <span class="recipe-photo-deco br">🌿</span>
+        </div>
         <div class="recipe-body">
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">Ingrédients</span>
+            <span class="recipe-section-badge">🧺 Ingrédients</span>
             <span class="recipe-section-line"></span>
           </div>
           <ul class="recipe-ingredients">
@@ -742,24 +812,25 @@
           </ul>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">Marinade</span>
+            <span class="recipe-section-badge">🥣 Préparation</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
             <li><span class="step-num">1</span><span>Mélanger l'huile, le citron, l'ail, la moutarde et le miel.</span></li>
             <li><span class="step-num">2</span><span>Ajouter le thym, le romarin, le sel et le poivre.</span></li>
-            <li><span class="step-num">3</span><span>Badigeonner les morceaux de lapin. Laisser mariner <strong>au minimum 2 heures</strong>, idéalement toute une nuit.</span></li>
+            <li><span class="step-num">3</span><span>Badigeonner les morceaux de lapin. Laisser mariner <strong>au minimum 2 heures</strong>, idéalement toute une nuit au frais.</span></li>
           </ol>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">Cuisson</span>
+            <span class="recipe-section-badge">🔥 Cuisson au barbecue</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
-            <li><span class="step-num">1</span><span>Préchauffer le barbecue, déposer le lapin à côté des braises (cuisson indirecte).</span></li>
-            <li><span class="step-num">2</span><span>Retourner régulièrement pendant <strong>35 à 45 minutes</strong>.</span></li>
-            <li><span class="step-num">3</span><span>Badigeonner avec le reste de marinade en cours de cuisson.</span></li>
-            <li><span class="step-num">4</span><span>Terminer quelques minutes au-dessus des braises pour dorer.</span></li>
+            <li><span class="step-num">1</span><span>Préchauffer le barbecue avec une zone de cuisson douce.</span></li>
+            <li><span class="step-num">2</span><span>Déposer les morceaux à côté des braises (cuisson indirecte).</span></li>
+            <li><span class="step-num">3</span><span>Retourner régulièrement pendant <strong>35 à 45 minutes</strong>.</span></li>
+            <li><span class="step-num">4</span><span>Badigeonner avec le reste de marinade en cours de cuisson.</span></li>
+            <li><span class="step-num">5</span><span>Terminer quelques minutes au-dessus des braises pour dorer.</span></li>
           </ol>
 
           <div class="recipe-tip">
@@ -769,6 +840,28 @@
               <p>Cuisson douce et régulière pour un lapin tendre et juteux, bien doré à l'extérieur.</p>
             </div>
           </div>
+
+          <div class="recipe-accomp">
+            <div class="recipe-accomp-title">🌿 Accompagnements idéaux 🌿</div>
+            <div class="recipe-accomp-grid">
+              <div class="recipe-accomp-item">
+                <span class="recipe-accomp-emoji">🥔</span>
+                <span class="recipe-accomp-label">Pommes de terre grenaille</span>
+              </div>
+              <div class="recipe-accomp-item">
+                <span class="recipe-accomp-emoji">🌽</span>
+                <span class="recipe-accomp-label">Légumes grillés</span>
+              </div>
+              <div class="recipe-accomp-item">
+                <span class="recipe-accomp-emoji">🥗</span>
+                <span class="recipe-accomp-label">Salade estivale</span>
+              </div>
+              <div class="recipe-accomp-item">
+                <span class="recipe-accomp-emoji">🧄</span>
+                <span class="recipe-accomp-label">Sauce ail et fines herbes</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -776,13 +869,18 @@
       <div class="recipe-card">
         <div class="recipe-card-top">
           <div class="recipe-tag">Alternative</div>
-          <h3 class="recipe-name">a la plancha</h3>
+          <h3 class="recipe-name">à la plancha</h3>
           <div class="recipe-card-icon">🥩</div>
+        </div>
+        <div class="recipe-photo recipe-photo-plancha" aria-hidden="true">
+          <span class="recipe-photo-deco tl">🌿</span>
+          <span class="recipe-photo-emoji">🥩</span>
+          <span class="recipe-photo-deco br">🍋</span>
         </div>
         <div class="recipe-body">
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">Ingrédients</span>
+            <span class="recipe-section-badge">🧺 Ingrédients</span>
             <span class="recipe-section-line"></span>
           </div>
           <ul class="recipe-ingredients">
@@ -795,7 +893,7 @@
           </ul>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">Marinade</span>
+            <span class="recipe-section-badge">🥣 Préparation</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -805,12 +903,12 @@
           </ol>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">Cuisson</span>
+            <span class="recipe-section-badge">♨️ Cuisson à la plancha</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
-            <li><span class="step-num">1</span><span>Faire chauffer la plancha à feu moyen. Huiler légèrement.</span></li>
-            <li><span class="step-num">2</span><span>Déposer les morceaux et cuire environ <strong>25 à 30 minutes</strong>.</span></li>
+            <li><span class="step-num">1</span><span>Faire chauffer la plancha à feu moyen. Huiler légèrement la surface.</span></li>
+            <li><span class="step-num">2</span><span>Déposer les morceaux de lapin et cuire environ <strong>25 à 30 minutes</strong>.</span></li>
             <li><span class="step-num">3</span><span>Retourner régulièrement pour une cuisson uniforme.</span></li>
             <li><span class="step-num">4</span><span>Servir bien doré avec un filet de citron.</span></li>
           </ol>
@@ -826,6 +924,8 @@
       </div>
 
     </div>
+
+    <p class="recipe-tagline">Deux cuissons, un même plaisir · Savoureux, parfumé et convivial</p>
   </div>
   </section>
 
