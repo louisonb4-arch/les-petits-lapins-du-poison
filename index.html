@@ -360,21 +360,10 @@
     letter-spacing: 0.2px;
   }
   .recipe-photo {
-    height: 190px; overflow: hidden; position: relative;
-    display: flex; align-items: center; justify-content: center;
+    height: 210px; overflow: hidden;
   }
-  .recipe-photo-bbq {
-    background: linear-gradient(150deg, #3d1a0a 0%, #7a3215 55%, #c45c1a 100%);
-  }
-  .recipe-photo-plancha {
-    background: linear-gradient(150deg, #1e2d10 0%, #3a5520 55%, #6a8a3a 100%);
-  }
-  .recipe-photo-emoji { font-size: 80px; opacity: 0.45; }
-  .recipe-photo-deco {
-    position: absolute; font-size: 26px; opacity: 0.25;
-  }
-  .recipe-photo-deco.tl { top: 16px; left: 18px; }
-  .recipe-photo-deco.br { bottom: 14px; right: 18px; }
+  .recipe-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+  .recipe-card:hover .recipe-photo img { transform: scale(1.04); }
 
   .recipe-accomp {
     margin-top: 24px; padding-top: 20px;
@@ -789,10 +778,8 @@
           <h3 class="recipe-name">au barbecue</h3>
           <div class="recipe-card-icon">🔥</div>
         </div>
-        <div class="recipe-photo recipe-photo-bbq" aria-hidden="true">
-          <span class="recipe-photo-deco tl">🌿</span>
-          <span class="recipe-photo-emoji">🔥</span>
-          <span class="recipe-photo-deco br">🌿</span>
+        <div class="recipe-photo">
+          <img src="recipe-bbq.webp" alt="Lapin au barbecue sur feu de bois" />
         </div>
         <div class="recipe-body">
 
@@ -872,10 +859,8 @@
           <h3 class="recipe-name">à la plancha</h3>
           <div class="recipe-card-icon">🥩</div>
         </div>
-        <div class="recipe-photo recipe-photo-plancha" aria-hidden="true">
-          <span class="recipe-photo-deco tl">🌿</span>
-          <span class="recipe-photo-emoji">🥩</span>
-          <span class="recipe-photo-deco br">🍋</span>
+        <div class="recipe-photo">
+          <img src="recipe-plancha.webp" alt="Lapin à la plancha, thym et citron" />
         </div>
         <div class="recipe-body">
 
