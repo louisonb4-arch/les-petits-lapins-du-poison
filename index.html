@@ -379,7 +379,7 @@
   }
   .modal-overlay.open .modal-box { transform: translateY(0); }
   .modal-photo { aspect-ratio: 4/3; overflow: hidden; border-radius: 24px 24px 0 0; }
-  .modal-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-photo img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
   .modal-close {
     position: absolute; top: 14px; right: 14px;
     width: 38px; height: 38px; border-radius: 50%;
@@ -673,7 +673,7 @@
 
       <article class="card">
         <div class="photo">
-          <img src="photo-terrine.png" alt="Terrine de lapin BIO artisanale" />
+          <img src="photo-terrine.png" alt="Terrine de lapin BIO artisanale" style="object-fit:contain;background:#fff;" />
         </div>
         <div class="body">
           <div class="title">Terrine de lapin</div>
@@ -996,6 +996,7 @@
       name: 'Terrine de lapin',
       price: '4,80 € / pot · 200 g',
       img: 'photo-terrine.png',
+      contain: true,
       desc: 'Une terrine onctueuse et parfumée, parfaite pour vos apéritifs. Certifié BIO (FR BIO 09).',
       composition: 'Viande et foie de lapin 62 %, gras de porc, oignons, ail, poivre, aromates. Produits issus de l\'agriculture biologique.',
       conservation: 'Conserver au réfrigérateur. À conserver de préférence avant la date indiquée sur le couvercle.',
@@ -1015,8 +1016,10 @@
   function openModal(id) {
     const p = PRODUCTS[id];
     if (!p) return;
-    document.getElementById('modal-img').src = p.img;
-    document.getElementById('modal-img').alt = p.name;
+    const mImg = document.getElementById('modal-img');
+    mImg.src = p.img;
+    mImg.alt = p.name;
+    mImg.style.objectFit = p.contain ? 'contain' : 'cover';
     document.getElementById('modal-name').textContent = p.name;
     document.getElementById('modal-price').textContent = p.price;
     document.getElementById('modal-desc').textContent = p.desc;
