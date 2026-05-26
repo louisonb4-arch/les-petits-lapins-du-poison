@@ -300,11 +300,13 @@
   }
   .recipe-section:first-child { margin-top: 0; }
   .recipe-section-badge {
+    display: inline-flex; align-items: center; gap: 6px;
     background: var(--green-800); color: #fff;
-    border-radius: 999px; padding: 5px 14px;
+    border-radius: 999px; padding: 5px 14px 5px 10px;
     font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
     white-space: nowrap; flex-shrink: 0;
   }
+  .recipe-section-badge svg { width: 13px; height: 13px; flex-shrink: 0; opacity: 0.9; }
   .recipe-section-line { flex: 1; height: 1px; background: rgba(35,77,32,0.12); }
 
   .recipe-ingredients {
@@ -340,7 +342,8 @@
     border-radius: 14px; padding: 16px 18px;
     display: flex; gap: 14px; align-items: flex-start;
   }
-  .recipe-tip-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .recipe-tip-icon { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex-shrink: 0; margin-top: 1px; }
+  .recipe-tip-icon svg { width: 26px; height: 26px; color: var(--green-700); }
   .recipe-tip-content {}
   .recipe-tip-label {
     font-size: 10px; font-weight: 700; letter-spacing: 1px;
@@ -384,7 +387,9 @@
     background: var(--cream-deep); border-radius: 12px; padding: 12px 6px;
     text-align: center;
   }
-  .recipe-accomp-emoji { font-size: 26px; line-height: 1; }
+  .recipe-accomp-emoji { display: flex; align-items: center; justify-content: center; height: 34px; }
+  .recipe-accomp-emoji svg { width: 32px; height: 32px; color: var(--green-700); }
+  .rleaf { width: 12px; height: 12px; display: inline-block; vertical-align: -1px; opacity: 0.75; }
   .recipe-accomp-label { font-size: 10.5px; color: var(--ink-soft); line-height: 1.3; font-weight: 500; }
 
   .recipe-tagline {
@@ -784,7 +789,7 @@
         <div class="recipe-body">
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">🧺 Ingrédients</span>
+            <span class="recipe-section-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h14l-2 9H7Z"/><path d="M9 10C8.5 7 10 4 12 4s3.5 3 3 6"/><line x1="11" y1="10" x2="10.5" y2="19"/><line x1="13" y1="10" x2="13.5" y2="19"/><line x1="12" y1="10" x2="12" y2="19"/><line x1="6" y1="14" x2="18" y2="14"/></svg> Ingrédients</span>
             <span class="recipe-section-line"></span>
           </div>
           <ul class="recipe-ingredients">
@@ -799,7 +804,7 @@
           </ul>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">🥣 Préparation</span>
+            <span class="recipe-section-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10q1 7 8 8 7-1 8-8"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="18" x2="9" y2="21"/><line x1="15" y1="18" x2="15" y2="21"/><line x1="7" y1="21" x2="17" y2="21"/></svg> Préparation</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -809,7 +814,7 @@
           </ol>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">🔥 Cuisson au barbecue</span>
+            <span class="recipe-section-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5 0-5-6-2-9.5 0 3 2 2.5 2 1 1 2 4.5 1.5 2.5-3.5C18 11 18 21 12 21Z"/></svg> Cuisson au barbecue</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -821,7 +826,7 @@
           </ol>
 
           <div class="recipe-tip">
-            <div class="recipe-tip-icon">💡</div>
+            <div class="recipe-tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21h6"/><path d="M9 18h6v-1c0-2 2-3.5 2-6a5 5 0 00-10 0c0 2.5 2 4 2 6v1Z"/><line x1="12" y1="3" x2="12" y2="1"/><line x1="4.5" y1="5.5" x2="6" y2="7"/><line x1="19.5" y1="5.5" x2="18" y2="7"/></svg></div>
             <div class="recipe-tip-content">
               <div class="recipe-tip-label">Le secret</div>
               <p>Cuisson douce et régulière pour un lapin tendre et juteux, bien doré à l'extérieur.</p>
@@ -829,22 +834,22 @@
           </div>
 
           <div class="recipe-accomp">
-            <div class="recipe-accomp-title">🌿 Accompagnements idéaux 🌿</div>
+            <div class="recipe-accomp-title"><svg class="rleaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-6-1-10-3-14"/><path d="M9 15C6 13 4 9 5 6c3 1 5 5 4 9"/><path d="M10 10c3-2 6-6 5-8-3 1-6 5-5 8"/></svg> Accompagnements idéaux <svg class="rleaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-6-1-10-3-14"/><path d="M9 15C6 13 4 9 5 6c3 1 5 5 4 9"/><path d="M10 10c3-2 6-6 5-8-3 1-6 5-5 8"/></svg></div>
             <div class="recipe-accomp-grid">
               <div class="recipe-accomp-item">
-                <span class="recipe-accomp-emoji">🥔</span>
+                <span class="recipe-accomp-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="19" rx="10" ry="7"/><circle cx="10" cy="16" r="1.2" fill="currentColor"/><circle cx="20" cy="21" r="1.2" fill="currentColor"/><circle cx="21" cy="15" r="1.2" fill="currentColor"/></svg></span>
                 <span class="recipe-accomp-label">Pommes de terre grenaille</span>
               </div>
               <div class="recipe-accomp-item">
-                <span class="recipe-accomp-emoji">🌽</span>
+                <span class="recipe-accomp-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15c0-5 4-8 6-5s6-2 8 0 3 9-3 11-11 0-11-6Z"/><line x1="7" y1="23" x2="25" y2="23"/><line x1="7" y1="26" x2="25" y2="26"/></svg></span>
                 <span class="recipe-accomp-label">Légumes grillés</span>
               </div>
               <div class="recipe-accomp-item">
-                <span class="recipe-accomp-emoji">🥗</span>
+                <span class="recipe-accomp-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16q2 10 11 10t11-10Z"/><line x1="4" y1="16" x2="28" y2="16"/><path d="M13 16c-1-4 1-8 4-6"/><path d="M19 16c1-4 4-5 5-2"/></svg></span>
                 <span class="recipe-accomp-label">Salade estivale</span>
               </div>
               <div class="recipe-accomp-item">
-                <span class="recipe-accomp-emoji">🧄</span>
+                <span class="recipe-accomp-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27c-6 0-7-7-2-11 1 5 4 5 5 0 5 4 3 11-3 11Z"/><path d="M16 9c-2 1.5-2 5-2 6"/><path d="M10 11c-3 2-3 6-3 7"/><path d="M22 11c3 2 3 6 3 7"/><line x1="16" y1="27" x2="16" y2="31"/></svg></span>
                 <span class="recipe-accomp-label">Sauce ail et fines herbes</span>
               </div>
             </div>
@@ -865,7 +870,7 @@
         <div class="recipe-body">
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">🧺 Ingrédients</span>
+            <span class="recipe-section-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h14l-2 9H7Z"/><path d="M9 10C8.5 7 10 4 12 4s3.5 3 3 6"/><line x1="11" y1="10" x2="10.5" y2="19"/><line x1="13" y1="10" x2="13.5" y2="19"/><line x1="12" y1="10" x2="12" y2="19"/><line x1="6" y1="14" x2="18" y2="14"/></svg> Ingrédients</span>
             <span class="recipe-section-line"></span>
           </div>
           <ul class="recipe-ingredients">
@@ -878,7 +883,7 @@
           </ul>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">🥣 Préparation</span>
+            <span class="recipe-section-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10q1 7 8 8 7-1 8-8"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="18" x2="9" y2="21"/><line x1="15" y1="18" x2="15" y2="21"/><line x1="7" y1="21" x2="17" y2="21"/></svg> Préparation</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -888,7 +893,7 @@
           </ol>
 
           <div class="recipe-section">
-            <span class="recipe-section-badge">♨️ Cuisson à la plancha</span>
+            <span class="recipe-section-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="2" width="4" height="10" rx="1"/><path d="M7 12h10v4q0 4-5 4t-5-4Z"/><line x1="12" y1="20" x2="12" y2="23"/></svg> Cuisson à la plancha</span>
             <span class="recipe-section-line"></span>
           </div>
           <ol class="recipe-steps">
@@ -899,7 +904,7 @@
           </ol>
 
           <div class="recipe-tip">
-            <div class="recipe-tip-icon">🌿</div>
+            <div class="recipe-tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-6-1-10-3-14"/><path d="M9 15C6 13 4 9 5 6c3 1 5 5 4 9"/><path d="M10 10c3-2 6-6 5-8-3 1-6 5-5 8"/></svg></div>
             <div class="recipe-tip-content">
               <div class="recipe-tip-label">Astuce</div>
               <p>Ajouter quelques branches de thym frais sur la plancha pendant la cuisson pour parfumer davantage la viande.</p>
