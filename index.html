@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Les Petits Lapins du Poiron — Élevage biologique, Thorigny, Vendée</title>
+<meta name="description" content="Élevage biologique de lapins en Vendée. Viande saine, locale et responsable : lapin entier, découpe, terrine, chipolatas. Circuits courts à Thorigny." />
+<meta property="og:title" content="Les Petits Lapins du Poiron — Élevage biologique" />
+<meta property="og:description" content="Viande de lapin BIO, locale et responsable, élevée en plein air en Vendée." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="hero.png" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream:      #f8f2e4;
+    --cream-soft: #faf5ea;
+    --cream-deep: #f0e8d2;
+    --green-900:  #234d20;
+    --green-800:  #2d4a20;
+    --green-700:  #3a5d29;
+    --green-500:  #6a8a3a;
+    --green-300:  #c9d5a5;
+    --ink:        #1f2418;
+    --ink-soft:   #4a4f3f;
+    --line:       rgba(35,77,32,0.18);
+    --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; }
+  a   { text-decoration: none; color: inherit; }
+
+  /* full-width sections, consistent horizontal padding */
+  .page { width: 100%; background: var(--cream); overflow-x: hidden; }
+
+  /* ── typography ── */
+  .script {
+    font-family: 'Sacramento', cursive;
+    color: var(--green-700);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: 0.2px;
+  }
+  h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.5px;
+  }
+  h1 { font-size: 48px; line-height: 1.12; font-weight: 700; }
+  h2 { font-size: 40px; line-height: 1.15; font-weight: 700; }
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .accent { color: var(--green-700); }
+  p { margin: 0; color: var(--ink-soft); }
+
+  /* ── header ── */
+  header { background: var(--cream); width: 100%; }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    padding: 18px clamp(24px, 4vw, 56px);
+  }
+
+  .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .logo-img-wrap { flex-shrink: 0; width: 54px; height: 54px; }
+  .logo-img { width: 54px; height: 54px; object-fit: contain; mix-blend-mode: multiply; }
+
+  .logo-text { line-height: 1.08; }
+  .logo-text .name {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    color: var(--ink); font-size: 14px; letter-spacing: 0.3px; white-space: nowrap;
+  }
+  .logo-text .sub {
+    font-family: 'Inter', sans-serif; font-size: 8px; letter-spacing: 1.5px;
+    color: var(--ink-soft); text-transform: uppercase; margin-top: 3px; white-space: nowrap;
+  }
+
+  nav.primary { display: flex; align-items: center; gap: 18px; }
+  nav.primary a {
+    color: var(--ink); font-size: 13px; font-weight: 500; white-space: nowrap;
+    padding-bottom: 4px; border-bottom: 2px solid transparent;
+    transition: color .15s, border-color .15s;
+  }
+  nav.primary a.active { color: var(--green-800); border-bottom-color: var(--green-700); font-weight: 600; }
+  nav.primary a:hover { color: var(--green-700); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-800); color: var(--cream);
+    border: 0; border-radius: 999px; padding: 14px 26px;
+    font-family: 'Inter', sans-serif; font-size: 14.5px; font-weight: 600;
+    cursor: pointer; transition: background .15s ease; white-space: nowrap;
+  }
+  .header-inner .btn { padding: 11px 18px; font-size: 13px; gap: 6px; }
+  .btn:hover { background: var(--green-900); }
+  .btn .sprig { color: var(--green-300); }
+
+  /* ── hero ── */
+  .hero {
+    position: relative; height: 680px;
+    overflow: hidden; background: var(--cream);
+  }
+  .hero-img { position: absolute; inset: 0; }
+  .hero-img img, .hero-img video { width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+  .hero-img::after { display: none; }
+  .hero-deco-rabbit { position: absolute; right: -40px; top: 20px; width: 380px; height: auto; pointer-events: none; z-index: 2; opacity: 0.9; }
+  .hero-deco-leaves { position: absolute; right: 160px; bottom: 40px; width: 180px; height: auto; pointer-events: none; z-index: 2; opacity: 0.85; }
+
+  .hero-inner {
+    position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px clamp(24px, 5vw, 48px) 0;
+  }
+  .hero-inner-content { max-width: 540px; }
+  .hero .script { font-size: 27px; color: var(--green-700); }
+  .hero h1 { margin-top: 14px; color: var(--ink); }
+  .hero h1 .accent { color: var(--green-700); }
+  .hero p.lead { margin-top: 20px; max-width: 420px; font-size: 16px; color: var(--ink-soft); }
+  .hero .btn { margin-top: 30px; }
+
+  /* ── features bar — floating white card ── */
+  .features {
+    background: transparent; width: 100%;
+    position: relative; z-index: 2;
+    margin-top: -34px;
+    padding: 0 clamp(24px, 5vw, 48px);
+  }
+  .features-inner {
+    max-width: 1200px; margin: 0 auto;
+    background: var(--cream-soft);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 30px 24px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  }
+  .feature {
+    display: flex; align-items: center; gap: 22px;
+    padding: 4px 30px;
+    border-right: 1px solid var(--line);
+  }
+  .feature:last-child { border-right: none; }
+  .feature .icon {
+    width: 80px; height: 80px;
+    background: none; border: none;
+    border-radius: 50%; overflow: hidden;
+    flex-shrink: 0;
+  }
+  .feature .icon img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; }
+  .feature h3 { color: var(--ink); font-size: 15px; font-weight: 600; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+  .feature p { color: var(--ink-soft); font-size: 12.5px; line-height: 1.45; opacity: 0.85; }
+
+  /* ── products ── */
+  section.products { background: var(--cream); width: 100%; position: relative; overflow: hidden; }
+  .products-deco-left { position: absolute; left: -30px; top: 18px; width: 220px; height: auto; opacity: 0.85; pointer-events: none; }
+  .products-deco-right { position: absolute; right: -30px; bottom: 0; width: 220px; height: auto; opacity: 0.85; pointer-events: none; }
+  .products-inner { max-width: 1200px; margin: 0 auto; padding: 64px clamp(24px, 5vw, 48px) 72px; }
+  .section-head { text-align: center; }
+  .section-head .script { display: block; margin-bottom: 4px; font-size: 28px; }
+  .section-head h2 { max-width: 640px; margin: 0 auto; }
+
+  .product-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .card {
+    background: var(--cream-soft); border-radius: 18px; overflow: hidden;
+    box-shadow: var(--shadow-card); display: flex; flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.13); }
+  .card .photo { aspect-ratio: 1/1; overflow: hidden; }
+  .card .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .card:hover .photo img { transform: scale(1.05); }
+  .card .body { padding: 22px 18px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .card .title { font-weight: 600; font-size: 17px; color: var(--ink); margin-bottom: 12px; }
+  .card .title::after {
+    content: ''; display: block; width: 28px; height: 2px;
+    background: var(--green-700); opacity: 0.5; margin: 10px auto 0;
+  }
+  .card .price { font-size: 14px; color: var(--ink-soft); margin-bottom: 18px; }
+  .card .btn { padding: 11px 22px; font-size: 13px; }
+
+  .voir-tous { margin-top: 40px; display: flex; justify-content: center; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 11px 22px; font-size: 13.5px; font-weight: 500;
+    transition: border-color .15s, color .15s;
+  }
+  .pill:hover { border-color: var(--green-700); color: var(--green-800); }
+
+  /* ── story ── */
+  section.story {
+    margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--cream-deep); position: relative; overflow: hidden;
+  }
+  .story-img { overflow: hidden; }
+  .story-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .story-text { padding: 80px clamp(40px, 5vw, 80px); position: relative; z-index: 1; }
+  .story-text .script { display: block; margin-bottom: 8px; font-size: 26px; }
+  .story-text h2 { font-size: 38px; }
+  .story-text p { margin-top: 20px; max-width: 380px; font-size: 14.5px; line-height: 1.6; }
+  .story-text .btn { margin-top: 26px; white-space: nowrap; padding: 13px 24px; font-size: 13.5px; }
+
+  .story-bunny { position: absolute; right: -60px; bottom: 0; width: 360px; height: auto; opacity: 1; pointer-events: none; }
+
+  /* ── footer ── */
+  footer { background: var(--green-800); color: var(--cream); width: 100%; }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 52px clamp(24px, 5vw, 48px) 48px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  }
+  .foot-block {
+    display: flex; gap: 16px; align-items: center;
+    padding: 0 40px;
+    border-right: 1px solid rgba(201,213,165,0.22);
+  }
+  .foot-block:first-child { padding-left: 0; }
+  .foot-block:last-child { border-right: none; padding-right: 0; }
+  .foot-block .icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 1.5px solid var(--green-300); display: grid; place-items: center;
+    color: var(--green-300); flex-shrink: 0;
+  }
+  .foot-block .label { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14.5px; color: var(--cream); margin-bottom: 4px; }
+  .foot-block .lines { font-size: 13.5px; color: rgba(243,233,210,0.78); line-height: 1.55; }
+  .foot-block a { color: rgba(243,233,210,0.78); }
+  .foot-block a:hover { color: var(--cream); }
+
+  .ribbon {
+    background: var(--cream-deep); color: var(--green-900);
+    padding: 16px 24px; text-align: center; font-size: 13.5px;
+    display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500;
+  }
+
+  /* sprig glyph */
+  .sprig-svg { width: 18px; height: 18px; display: inline-block; vertical-align: -4px; }
+
+  /* ── hamburger ── */
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .25s, opacity .25s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* mobile nav drawer */
+  .mobile-nav {
+    display: none; flex-direction: column; gap: 0;
+    background: var(--cream-soft); border-top: 1px solid var(--line);
+    padding: 16px 24px 24px; overflow: hidden;
+    max-height: 0; transition: max-height .35s ease, padding .35s ease;
+  }
+  .mobile-nav.open { max-height: 400px; }
+  .mobile-nav-link {
+    display: block; padding: 14px 0; font-size: 17px; font-weight: 500;
+    color: var(--ink); border-bottom: 1px solid var(--line);
+  }
+  .mobile-nav-link:last-of-type { border-bottom: none; }
+  .mobile-nav-btn { margin-top: 20px; justify-content: center; width: 100%; }
+
+  /* ── responsive ── */
+  @media (max-width: 900px) {
+    nav.primary { display: none; }
+    .hamburger { display: flex; }
+    .mobile-nav { display: flex; }
+    .header-cta { display: none; }
+    .header-inner { gap: 0; }
+
+    .features-inner { grid-template-columns: 1fr; gap: 0; padding: 12px 0; }
+    .feature { border-right: none; border-bottom: 1px solid var(--line); padding: 18px 24px; gap: 16px; }
+    .feature:last-child { border-bottom: none; }
+    .feature .icon { width: 60px; height: 60px; }
+    .feature .icon img { width: 60px; height: 60px; }
+
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+    section.story { grid-template-columns: 1fr; }
+    .story-img { height: 260px; }
+    .story-text { padding: 48px 28px; }
+    .story-text h2 { font-size: 32px; }
+    .story-text p { max-width: 100%; }
+
+    .footer-inner { grid-template-columns: 1fr; gap: 0; padding: 36px 24px 32px; }
+    .foot-block { padding: 20px 0; border-right: none; border-bottom: 1px solid rgba(201,213,165,0.22); }
+    .foot-block:first-child { padding-left: 0; }
+    .foot-block:last-child { border-bottom: none; padding-right: 0; }
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    h2 { font-size: 28px; }
+    .script { font-size: 24px; }
+
+    .header-inner { padding: 14px 20px; }
+    .logo-img-wrap { width: 44px; height: 44px; }
+    .logo-img { width: 44px; height: 44px; }
+    .logo-text .name { font-size: 12px; }
+
+    .hero { height: auto; min-height: 100svh; display: flex; flex-direction: column; }
+    .hero-img { position: relative; flex: 1; min-height: 52svh; }
+    .hero-inner {
+      position: relative; background: var(--cream);
+      padding: 32px 20px 40px; z-index: 1;
+    }
+    .hero-inner-content { max-width: 100%; }
+    .hero h1 { font-size: 32px; margin-top: 10px; }
+    .hero p.lead { font-size: 15px; margin-top: 14px; max-width: 100%; }
+    .hero .btn { margin-top: 22px; }
+    .hero .script { font-size: 22px; }
+
+    .features { margin-top: 0; padding: 0 16px; }
+    .features-inner { border-radius: 14px; }
+
+    .products-inner { padding: 48px 16px 56px; }
+    .product-grid { grid-template-columns: 1fr; gap: 16px; }
+    .section-head .script { font-size: 24px; }
+    .section-head h2 { font-size: 28px; }
+
+    .story-text { padding: 36px 20px; }
+    .story-text h2 { font-size: 28px; }
+    .story-text .script { font-size: 22px; }
+    .story-text .btn { width: 100%; justify-content: center; }
+
+    .footer-inner { padding: 32px 20px 28px; }
+    .ribbon { font-size: 12.5px; padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-img-wrap" aria-hidden="true">
+        <img src="logo.png" alt="Logo Les Petits Lapins du Poiron" width="66" height="66" class="logo-img" />
+      </div>
+      <div class="logo-text">
+        <div class="name">LES PETITS LAPINS DU POIRON</div>
+        <div class="sub">Élevage biologique · Vendée</div>
+      </div>
+    </div>
+
+    <nav class="primary">
+      <a href="#accueil" class="active">Accueil</a>
+      <a href="#histoire">Notre histoire</a>
+      <a href="#produits">Nos produits</a>
+      <a href="#histoire">La ferme</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn header-cta">
+      Nous contacter
+      <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
+        <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/>
+        <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
+      </svg>
+    </a>
+
+    <!-- hamburger — mobile only -->
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- mobile nav drawer -->
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#accueil" class="mobile-nav-link">Accueil</a>
+    <a href="#histoire" class="mobile-nav-link">Notre histoire</a>
+    <a href="#produits" class="mobile-nav-link">Nos produits</a>
+    <a href="#histoire" class="mobile-nav-link">La ferme</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="#contact" class="btn mobile-nav-btn">Nous contacter</a>
+  </nav>
+  </header>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="accueil">
+    <div class="hero-img" aria-hidden="true">
+      <img src="hero.png" alt="Lapin dans l'herbe au coucher du soleil" />
+    </div>
+    <div class="hero-inner">
+      <div class="hero-inner-content">
+        <span class="script">De notre ferme à votre table</span>
+        <h1>Une viande saine,<br/>locale et <span class="accent">responsable.</span></h1>
+        <p class="lead">Nos lapins sont élevés avec soin, dans le respect de leur bien-être et de la nature.</p>
+        <a href="#produits" class="btn">
+          Découvrir nos produits
+          <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
+            <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/>
+            <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ FEATURES ══════════════ -->
+  <section class="features">
+  <div class="features-inner">
+    <div class="feature">
+      <div class="icon"><img src="icon-elevage.png" alt="Élevage respectueux" /></div>
+      <div>
+        <h3>Élevage respectueux</h3>
+        <p>Bien-être animal<br/>et conditions naturelles</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="icon"><img src="icon-france.png" alt="Production locale" /></div>
+      <div>
+        <h3>Production locale</h3>
+        <p>Au cœur de la Vendée,<br/>circuits courts</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="icon"><img src="icon-alim.png" alt="Alimentation saine" /></div>
+      <div>
+        <h3>Alimentation saine</h3>
+        <p>Nourriture naturelle<br/>sans OGM</p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- ══════════════ PRODUITS ══════════════ -->
+  <section class="products" id="produits">
+    <img class="products-deco-left" src="feuille-deco.png" alt="" aria-hidden="true" />
+    <img class="products-deco-right" src="feuille-deco2.png" alt="" aria-hidden="true" />
+  <div class="products-inner">
+    <div class="section-head">
+      <span class="script">Nos produits <svg viewBox="0 0 28 28" fill="none" style="color:var(--green-700);width:28px;height:28px;vertical-align:-6px;display:inline-block" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tige centrale -->
+  <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
+  <!-- feuille gauche basse -->
+  <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17 Z" stroke-width="1.2" fill="currentColor" opacity="0.18"/>
+  <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/>
+  <!-- feuille droite haute -->
+  <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12 Z" stroke-width="1.2" fill="currentColor" opacity="0.18"/>
+  <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
+</svg></span>
+      <h2>Des produits fermiers,<br/>simples et <span class="accent">savoureux.</span></h2>
+    </div>
+
+    <div class="product-grid">
+      <article class="card">
+        <div class="photo">
+          <img src="photo-cage.png" alt="Lapin BIO entier, élevage Les Petits Lapins du Poiron" />
+        </div>
+        <div class="body">
+          <div class="title">Lapin entier</div>
+          <div class="price">18,00 € / pièce</div>
+          <a href="#contact" class="btn">Voir le produit</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo">
+          <img src="photo-mere.png" alt="Découpe de lapin BIO" />
+        </div>
+        <div class="body">
+          <div class="title">Découpe de lapin</div>
+          <div class="price">12,50 € / kg</div>
+          <a href="#contact" class="btn">Voir le produit</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo">
+          <img src="photo-noir.png" alt="Terrine de lapin BIO artisanale" />
+        </div>
+        <div class="body">
+          <div class="title">Terrine de lapin</div>
+          <div class="price">4,80 € / pot</div>
+          <a href="#contact" class="btn">Voir le produit</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo">
+          <img src="photo-parcours.png" alt="Chipolatas de lapin BIO" />
+        </div>
+        <div class="body">
+          <div class="title">Chipolatas de lapin</div>
+          <div class="price">11,00 € / 500 g</div>
+          <a href="#contact" class="btn">Voir le produit</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="voir-tous">
+      <a href="#contact" class="pill">
+        Voir tous nos produits
+        <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" style="color:var(--green-700)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
+          <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/>
+          <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  </section>
+
+  <!-- ══════════════ HISTOIRE ══════════════ -->
+  <section class="story" id="histoire">
+    <div class="story-img">
+      <img src="ferme.png" alt="La ferme Les Petits Lapins du Poiron, Thorigny, Vendée" />
+    </div>
+    <div class="story-text">
+      <span class="script">Notre histoire</span>
+      <h2>Une ferme familiale,<br/>une <span class="accent">passion.</span></h2>
+      <p>Installés au Petit Poiron, à Thorigny en Vendée, nous sommes une EARL spécialisée dans l'élevage biologique du lapin depuis 2020. Nos lapins évoluent sur parcours herbeux, en plein air, sans intrants chimiques.</p>
+      <a href="#contact" class="btn">
+        En savoir plus sur notre histoire
+        <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
+          <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/>
+          <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
+        </svg>
+      </a>
+
+      <img class="story-bunny" src="deco-rabbit.png" alt="" aria-hidden="true" />
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer id="contact">
+  <div class="footer-inner">
+    <div class="foot-block">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M11 2 C 6 2, 3 5, 3 9 C 3 14, 11 20, 11 20 C 11 20, 19 14, 19 9 C 19 5, 16 2, 11 2 Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+          <circle cx="11" cy="9" r="2.6" stroke="currentColor" stroke-width="1.4" fill="none"/>
+        </svg>
+      </div>
+      <div>
+        <div class="label">Les Petits Lapins du Poiron</div>
+        <div class="lines">7 le Petit Poiron<br/>85480 Thorigny · Vendée</div>
+      </div>
+    </div>
+
+    <div class="foot-block">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M5 3 L 8 3 L 9.5 8 L 7.5 9.5 C 9 12.5, 9.5 13, 12.5 14.5 L 14 12.5 L 19 14 L 19 17 C 19 18, 18 19, 17 19 C 9 19, 3 13, 3 5 C 3 4, 4 3, 5 3 Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+        </svg>
+      </div>
+      <div>
+        <div class="label">Une question, une commande ?</div>
+        <div class="lines">
+          <a href="tel:+33622215842">06 22 21 58 42</a><br/>
+          Du lundi au samedi, 9h – 19h
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-block">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="3" y="5" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4" fill="none"/>
+          <path d="M3 6 L 11 13 L 19 6" stroke="currentColor" stroke-width="1.4" fill="none"/>
+        </svg>
+      </div>
+      <div>
+        <div class="label">Écrivez-nous</div>
+        <div class="lines">
+          EARL Les Petits Lapins du Poiron<br/>
+          Certifié BIO depuis 2020 · Agréé Biocoop
+        </div>
+      </div>
+    </div>
+  </div>
+  </footer>
+
+  <div class="ribbon">
+    <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" style="color:var(--green-800)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
+      <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/>
+      <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
+    </svg>
+    Merci de soutenir une agriculture locale et responsable.
+    <span style="margin-left:8px">♡</span>
+  </div>
+
+</div>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const nav = document.getElementById('mobile-nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    nav.setAttribute('aria-hidden', !open);
+  });
+  // ferme le menu au clic sur un lien
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', false);
+  }));
+</script>
+</body>
+</html>
