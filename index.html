@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Les Petits Lapins du Poiron — Élevage biologique, Thorigny, Vendée</title>
-<meta name="description" content="Élevage biologique de lapins en Vendée. Viande saine, locale et responsable : lapin entier, découpe, terrine, chipolatas. Circuits courts à Thorigny." />
+<meta name="description" content="Élevage biologique de lapins en Vendée. Lapin entier, rillettes, terrine, saucisson artisanaux. Certifié AB, circuits courts à Thorigny." />
 <meta property="og:title" content="Les Petits Lapins du Poiron — Élevage biologique" />
 <meta property="og:description" content="Viande de lapin BIO, locale et responsable, élevée en plein air en Vendée." />
 <meta property="og:type" content="website" />
@@ -254,6 +254,83 @@
   /* sprig glyph */
   .sprig-svg { width: 18px; height: 18px; display: inline-block; vertical-align: -4px; }
 
+  /* ── bio badge ── */
+  .bio-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-700); color: var(--cream);
+    border-radius: 999px; padding: 8px 18px 8px 12px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.9px;
+    text-transform: uppercase; margin-bottom: 18px;
+  }
+  .bio-badge svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* ── product modal ── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(31,36,24,0.62);
+    z-index: 200;
+    display: flex; align-items: flex-end; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal-box {
+    background: var(--cream-soft);
+    border-radius: 24px 24px 0 0;
+    width: 100%; max-width: 560px; max-height: 92vh;
+    overflow-y: auto; position: relative;
+    transform: translateY(48px);
+    transition: transform .3s ease;
+    box-shadow: 0 -8px 48px rgba(0,0,0,0.18);
+  }
+  .modal-overlay.open .modal-box { transform: translateY(0); }
+  .modal-photo { aspect-ratio: 4/3; overflow: hidden; border-radius: 24px 24px 0 0; }
+  .modal-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(31,36,24,0.5); color: #fff;
+    border: none; cursor: pointer; font-size: 17px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10; transition: background .15s;
+  }
+  .modal-close:hover { background: rgba(31,36,24,0.8); }
+  .modal-body { padding: 24px 24px 40px; }
+  .modal-name {
+    font-family: 'Playfair Display', serif; font-size: 26px;
+    font-weight: 700; color: var(--ink); margin: 0 0 4px;
+  }
+  .modal-price { font-size: 15px; color: var(--green-700); font-weight: 600; margin-bottom: 14px; }
+  .modal-desc { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 20px; }
+  .modal-label {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px;
+    text-transform: uppercase; color: var(--green-700); margin: 18px 0 8px;
+  }
+  .modal-info {
+    font-size: 13.5px; color: var(--ink-soft); line-height: 1.65;
+    padding: 12px 16px; background: var(--cream-deep); border-radius: 10px;
+  }
+  .modal-saveurs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .saveur-btn {
+    padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    border: 1.5px solid var(--line); background: transparent; color: var(--ink);
+    cursor: pointer; transition: background .15s, border-color .15s, color .15s;
+  }
+  .saveur-btn.active { background: var(--green-700); color: var(--cream); border-color: var(--green-700); }
+  .saveur-desc {
+    font-size: 13.5px; color: var(--ink-soft); line-height: 1.6;
+    padding: 12px 16px; background: var(--cream-deep); border-radius: 10px;
+    margin-bottom: 4px; min-height: 52px;
+  }
+  .modal-cta { margin-top: 28px; }
+  .modal-cta .btn { width: 100%; justify-content: center; }
+
+  @media (min-width: 600px) {
+    .modal-overlay { align-items: center; }
+    .modal-box { border-radius: 24px; max-height: 88vh; }
+    .modal-photo { border-radius: 24px 24px 0 0; }
+  }
+
   /* ── hamburger ── */
   .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .25s, opacity .25s; }
@@ -404,6 +481,14 @@
     </div>
     <div class="hero-inner">
       <div class="hero-inner-content">
+        <div class="bio-badge">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 17 C 10 12, 9 7, 8 3"/>
+            <path d="M8 10 C 4 8, 2 4, 3 1 C 7 2, 9 6, 8 10"/>
+            <path d="M9 6 C 13 4, 16 0, 15 -1 C 12 0, 9 4, 9 6"/>
+          </svg>
+          Agriculture Biologique · Certifié AB
+        </div>
         <span class="script">De notre ferme à votre table</span>
         <h1>Une viande saine,<br/>locale et <span class="accent">responsable.</span></h1>
         <p class="lead">Nos lapins sont élevés avec soin, dans le respect de leur bien-être et de la nature.</p>
@@ -474,18 +559,18 @@
         <div class="body">
           <div class="title">Lapin entier</div>
           <div class="price">18,00 € / pièce</div>
-          <a href="#contact" class="btn">Voir le produit</a>
+          <button class="btn" onclick="openModal('lapin-entier')">Voir le produit</button>
         </div>
       </article>
 
       <article class="card">
         <div class="photo">
-          <img src="photo-mere.png" alt="Découpe de lapin BIO" />
+          <img src="photo-mere.png" alt="Rillettes de lapin BIO artisanales" />
         </div>
         <div class="body">
-          <div class="title">Découpe de lapin</div>
-          <div class="price">12,50 € / kg</div>
-          <a href="#contact" class="btn">Voir le produit</a>
+          <div class="title">Rillettes de lapin</div>
+          <div class="price">4,50 € / pot · 3 saveurs</div>
+          <button class="btn" onclick="openModal('rillettes')">Voir le produit</button>
         </div>
       </article>
 
@@ -496,18 +581,18 @@
         <div class="body">
           <div class="title">Terrine de lapin</div>
           <div class="price">4,80 € / pot</div>
-          <a href="#contact" class="btn">Voir le produit</a>
+          <button class="btn" onclick="openModal('terrine')">Voir le produit</button>
         </div>
       </article>
 
       <article class="card">
         <div class="photo">
-          <img src="photo-parcours.png" alt="Chipolatas de lapin BIO" />
+          <img src="photo-parcours.png" alt="Saucisson de lapin BIO artisanal" />
         </div>
         <div class="body">
-          <div class="title">Chipolatas de lapin</div>
-          <div class="price">11,00 € / 500 g</div>
-          <a href="#contact" class="btn">Voir le produit</a>
+          <div class="title">Saucisson de lapin</div>
+          <div class="price">11,00 € / pièce</div>
+          <button class="btn" onclick="openModal('saucisson')">Voir le produit</button>
         </div>
       </article>
     </div>
@@ -596,6 +681,42 @@
   </div>
   </footer>
 
+  <!-- ══════════════ PRODUCT MODAL ══════════════ -->
+  <div class="modal-overlay" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fermer">✕</button>
+      <div class="modal-photo">
+        <img id="modal-img" src="" alt="" />
+      </div>
+      <div class="modal-body">
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-price" id="modal-price"></div>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div id="modal-saveurs-wrap">
+          <div class="modal-label">Choisir une saveur</div>
+          <div class="modal-saveurs" id="modal-saveurs"></div>
+          <div class="saveur-desc" id="modal-saveur-desc"></div>
+        </div>
+        <div class="modal-label">Composition</div>
+        <div class="modal-info" id="modal-composition"></div>
+        <div class="modal-label">Conservation</div>
+        <div class="modal-info" id="modal-conservation"></div>
+        <div class="modal-label">Origine</div>
+        <div class="modal-info" id="modal-origine"></div>
+        <div class="modal-cta">
+          <a href="#contact" class="btn" onclick="closeModal()">
+            Commander · nous contacter
+            <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
+              <path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/>
+              <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="ribbon">
     <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" style="color:var(--green-800)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
       <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
@@ -612,6 +733,7 @@
   if (history.scrollRestoration) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
 
+  // ── hamburger ──
   const btn = document.getElementById('hamburger');
   const nav = document.getElementById('mobile-nav');
   btn.addEventListener('click', () => {
@@ -620,12 +742,105 @@
     btn.setAttribute('aria-expanded', open);
     nav.setAttribute('aria-hidden', !open);
   });
-  // ferme le menu au clic sur un lien
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     nav.classList.remove('open');
     btn.classList.remove('open');
     btn.setAttribute('aria-expanded', false);
   }));
+
+  // ── product modal ──
+  const PRODUCTS = {
+    'lapin-entier': {
+      name: 'Lapin entier BIO',
+      price: '18,00 € / pièce',
+      img: 'photo-cage.png',
+      desc: 'Lapin entier vidé et prêt à cuisiner, élevé en plein air sur parcours herbeux à Thorigny, Vendée. Poids moyen 1,3 – 1,6 kg. Idéal pour un rôti dominical ou une cocotte mijotée aux légumes.',
+      composition: 'Lapin BIO entier, vidé. Alimentation 100 % biologique, sans OGM, sans antibiotiques de croissance.',
+      conservation: 'À consommer dans les 5 jours après réception. Peut être congelé dès réception.',
+      origine: 'France — EARL Les Petits Lapins du Poiron, Thorigny (85480), Vendée.'
+    },
+    'rillettes': {
+      name: 'Rillettes de lapin',
+      price: '4,50 € / pot (180 g)',
+      img: 'photo-mere.png',
+      desc: 'Rillettes artisanales préparées à la ferme à partir de lapin BIO effiloché longuement. Disponibles en trois saveurs.',
+      saveurs: [
+        { label: 'Nature', desc: 'Lapin BIO effiloché, beurre, sel, poivre noir. Recette traditionnelle au goût franc et doux.' },
+        { label: 'Piment d\'Espelette', desc: 'Lapin BIO effiloché, beurre, piment d\'Espelette AOP. Une touche de chaleur subtile pour relever le goût.' },
+        { label: 'Pineau des Charentes', desc: 'Lapin BIO effiloché, beurre, Pineau des Charentes. Doux, légèrement sucré et très parfumé.' }
+      ],
+      composition: 'Viande de lapin BIO (min. 83 %), beurre, sel, poivre. Selon la saveur : piment d\'Espelette AOP ou Pineau des Charentes.',
+      conservation: 'Conserver au réfrigérateur (0–4 °C). À consommer dans les 10 jours après ouverture.',
+      origine: 'France — EARL Les Petits Lapins du Poiron, Thorigny (85480), Vendée.'
+    },
+    'terrine': {
+      name: 'Terrine de lapin',
+      price: '4,80 € / pot',
+      img: 'photo-noir.png',
+      desc: 'Terrine artisanale aux aromates, préparée à la ferme selon une recette familiale. Texture généreuse, parfumée au thym et au laurier.',
+      composition: 'Viande de lapin BIO (78 %), lard, œuf fermier, échalote, ail, thym, laurier, sel, poivre. Sans conservateur, sans colorant ajouté.',
+      conservation: 'Conserver au frais (0–4 °C). Consommer dans les 7 jours après ouverture.',
+      origine: 'France — EARL Les Petits Lapins du Poiron, Thorigny (85480), Vendée.'
+    },
+    'saucisson': {
+      name: 'Saucisson de lapin',
+      price: '11,00 € / pièce',
+      img: 'photo-parcours.png',
+      desc: 'Saucisson sec élaboré à partir de viande de lapin BIO, séché artisanalement. Texture ferme, goût subtil et légèrement épicé. À trancher et déguster à l\'apéritif.',
+      composition: 'Viande de lapin BIO (85 %), sel, poivre noir, ail, muscade, boyau naturel de porc. Sans nitrites ajoutés.',
+      conservation: 'Conserver dans un endroit frais, sec et à l\'abri de la lumière. Se conserve 4 à 6 semaines.',
+      origine: 'France — EARL Les Petits Lapins du Poiron, Thorigny (85480), Vendée.'
+    }
+  };
+
+  function openModal(id) {
+    const p = PRODUCTS[id];
+    if (!p) return;
+    document.getElementById('modal-img').src = p.img;
+    document.getElementById('modal-img').alt = p.name;
+    document.getElementById('modal-name').textContent = p.name;
+    document.getElementById('modal-price').textContent = p.price;
+    document.getElementById('modal-desc').textContent = p.desc;
+    document.getElementById('modal-composition').textContent = p.composition;
+    document.getElementById('modal-conservation').textContent = p.conservation;
+    document.getElementById('modal-origine').textContent = p.origine;
+
+    const saveursWrap = document.getElementById('modal-saveurs-wrap');
+    if (p.saveurs) {
+      saveursWrap.style.display = '';
+      const container = document.getElementById('modal-saveurs');
+      container.innerHTML = '';
+      p.saveurs.forEach((s, i) => {
+        const b = document.createElement('button');
+        b.className = 'saveur-btn' + (i === 0 ? ' active' : '');
+        b.textContent = s.label;
+        b.onclick = () => {
+          container.querySelectorAll('.saveur-btn').forEach(x => x.classList.remove('active'));
+          b.classList.add('active');
+          document.getElementById('modal-saveur-desc').textContent = s.desc;
+        };
+        container.appendChild(b);
+      });
+      document.getElementById('modal-saveur-desc').textContent = p.saveurs[0].desc;
+    } else {
+      saveursWrap.style.display = 'none';
+    }
+
+    document.getElementById('product-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('product-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('product-modal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
 </script>
 </body>
 </html>
