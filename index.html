@@ -36,7 +36,7 @@
     --ink:        #1f2418;
     --ink-soft:   #4a4f3f;
     --line:       rgba(35,77,32,0.18);
-    --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-card: 0 1px 6px rgba(0,0,0,0.06);
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -156,8 +156,8 @@
   .features-inner {
     max-width: 1200px; margin: 0 auto;
     background: var(--cream-soft);
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.06);
     padding: 30px 24px;
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
   }
@@ -188,14 +188,14 @@
 
   .product-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .card {
-    background: var(--cream-soft); border-radius: 18px; overflow: hidden;
+    background: var(--cream-soft); border-radius: 8px; overflow: hidden;
     box-shadow: var(--shadow-card); display: flex; flex-direction: column;
-    transition: transform .2s ease, box-shadow .2s ease;
+    transition: box-shadow .2s ease;
   }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.13); }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.10); }
   .card .photo { aspect-ratio: 1/1; overflow: hidden; }
-  .card .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
-  .card:hover .photo img { transform: scale(1.05); }
+  .card .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .card:hover .photo img { transform: scale(1.03); }
   .card .body { padding: 22px 18px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .card .title { font-weight: 600; font-size: 17px; color: var(--ink); margin-bottom: 12px; }
   .card .title::after {
@@ -266,15 +266,16 @@
   /* ── recipes ── */
   section.recipes { background: var(--cream); width: 100%; }
   .recipes-inner { max-width: 1200px; margin: 0 auto; padding: 72px clamp(24px, 5vw, 48px) 80px; }
-  .recipe-grid { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .recipe-grid { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
 
   .recipe-card {
-    background: #fff; border-radius: 18px;
-    overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: #fff; border-radius: 8px;
+    overflow: hidden; box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--green-800);
   }
   .recipe-card-top {
-    background: var(--green-800); color: var(--cream);
-    padding: 24px 24px 20px;
+    background: var(--green-900); color: var(--cream);
+    padding: 32px 28px 24px;
     display: flex; flex-direction: column; align-items: flex-start;
   }
   .recipe-card-icon {
@@ -284,15 +285,16 @@
   .recipe-card-icon img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
   .recipe-card-icon-leaf { font-size: 18px; opacity: 0.55; letter-spacing: 2px; }
   .recipe-tag {
-    font-size: 10px; font-weight: 700; letter-spacing: 1.6px;
-    text-transform: uppercase; color: var(--green-300); margin-bottom: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 2.2px;
+    text-transform: uppercase; color: var(--green-300); margin-bottom: 8px;
+    opacity: 0.85;
   }
   .recipe-name {
-    font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700;
-    color: #fff; margin: 0; letter-spacing: -0.3px; line-height: 1.1;
+    font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700;
+    color: #fff; margin: 0; letter-spacing: -0.5px; line-height: 1.05;
   }
 
-  .recipe-body { padding: 26px 26px 30px; }
+  .recipe-body { padding: 28px 28px 34px; }
 
   .recipe-section {
     display: flex; align-items: center; gap: 10px;
@@ -431,7 +433,7 @@
   .modal-overlay.open { opacity: 1; pointer-events: all; }
   .modal-box {
     background: var(--cream-soft);
-    border-radius: 24px 24px 0 0;
+    border-radius: 12px 12px 0 0;
     width: 100%; max-width: 560px; max-height: 92vh;
     overflow-y: auto; position: relative;
     transform: translateY(48px);
@@ -482,8 +484,8 @@
 
   @media (min-width: 600px) {
     .modal-overlay { align-items: center; }
-    .modal-box { border-radius: 24px; max-height: 88vh; }
-    .modal-photo { border-radius: 24px 24px 0 0; }
+    .modal-box { border-radius: 12px; max-height: 88vh; }
+    .modal-photo { border-radius: 12px 12px 0 0; }
   }
 
   /* ── hamburger ── */
@@ -772,10 +774,9 @@
   <section class="recipes" id="recettes">
   <div class="recipes-inner">
     <div class="section-head">
-      <span class="script">Nos recettes</span>
       <p class="recipes-sup">2 façons savoureuses de cuisiner</p>
-      <h2>le <span class="accent">lapin</span></h2>
-      <div class="recipes-subtitle-pill">mariné, parfumé et cuit à la perfection !</div>
+      <h2 style="font-size:52px;letter-spacing:-1px;">le <span class="accent">lapin</span></h2>
+      <div class="recipes-subtitle-pill">mariné, parfumé et cuit à la perfection&nbsp;!</div>
     </div>
 
     <div class="recipe-grid">
