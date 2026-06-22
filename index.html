@@ -190,16 +190,23 @@
     gap: 9px; padding: 0 7px; border-right: 1px solid var(--line);
   }
   .feat-mob .feature .icon {
-    width: 50px; height: 50px;
+    width: 58px; height: 58px;
     background: rgba(106,138,58,0.12); border-radius: 50%; overflow: visible;
     display: grid; place-items: center; color: var(--green-900);
   }
-  .feat-mob .feature .icon svg { width: 24px; height: 24px; }
+  .feat-mob .feature .icon svg { width: 26px; height: 26px; }
   .feat-mob .feature h3 {
-    color: var(--green-900); font-size: 10px; font-weight: 700;
+    color: var(--green-900); font-size: 11px; font-weight: 700;
     letter-spacing: 0.4px; text-transform: uppercase; margin: 0;
   }
-  .feat-mob .feature p { color: var(--ink-soft); font-size: 10.5px; line-height: 1.35; opacity: 1; }
+  .feat-mob .feature p { color: var(--ink-soft); font-size: 11px; line-height: 1.35; opacity: 1; }
+
+  /* feat-divider & story toggle elements */
+  .feat-divider { display: none; }
+  .story-leaf-top { display: none; width: 44px; height: 28px; margin-bottom: 12px; }
+  .story-tagline { display: none; margin-top: 14px; font-size: 12.5px; font-style: italic; color: var(--green-800); line-height: 1.5; }
+  .story-tagline .sprig-svg { width: 15px; height: 15px; vertical-align: -3px; }
+  .story-cta { }
 
   /* ── products ── */
   section.products { background: var(--cream); width: 100%; position: relative; overflow: hidden; }
@@ -579,12 +586,12 @@
     /* mobile hero — portrait photo, text on top-left sky, rabbit right (mockup) */
     .hero { height: auto; min-height: 96svh; display: block; position: relative; }
     .hero-img { position: absolute; inset: 0; height: 100%; }
-    .hero-img img { object-position: 66% center; }
+    .hero-img img { object-position: 65% top; }
     .hero-img::after {
       display: block; content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
-        linear-gradient(180deg, var(--cream) 0%, var(--cream) 5%, rgba(248,242,228,0.92) 24%, rgba(248,242,228,0.45) 40%, rgba(248,242,228,0) 56%),
-        linear-gradient(90deg, rgba(248,242,228,0.62) 0%, rgba(248,242,228,0.18) 46%, rgba(248,242,228,0) 74%);
+        linear-gradient(180deg, rgba(248,242,228,0.88) 0%, rgba(248,242,228,0.72) 14%, rgba(248,242,228,0.36) 32%, rgba(248,242,228,0) 54%),
+        linear-gradient(90deg, rgba(248,242,228,0.86) 0%, rgba(248,242,228,0.52) 34%, rgba(248,242,228,0.14) 55%, rgba(248,242,228,0) 68%);
     }
     .hero-inner {
       position: relative; background: transparent;
@@ -607,10 +614,21 @@
     .section-head .script { font-size: 24px; }
     .section-head h2 { font-size: 28px; }
 
-    .story-text { padding: 36px 20px; }
-    .story-text h2 { font-size: 28px; }
-    .story-text .script { font-size: 22px; }
-    .story-text .btn { width: 100%; justify-content: center; }
+    /* story — mobile 2-col layout (text left, photo right) */
+    .feat-divider { display: flex; justify-content: center; padding: 14px 0 6px; }
+    section.story {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'txt img';
+    }
+    .story-text { grid-area: txt; padding: 22px 6px 22px 18px; }
+    .story-img { grid-area: img; height: 220px; border-radius: 14px; align-self: center; margin: 16px 14px 16px 4px; }
+    .story-text h2 { font-size: 20px; letter-spacing: -0.3px; }
+    .story-text .script { display: none; }
+    .story-text p { font-size: 12.5px; max-width: 100%; margin-top: 12px; }
+    .story-text .btn { display: none; }
+    .story-bunny { display: none; }
+    .story-leaf-top { display: block; }
+    .story-tagline { display: block; }
 
     .footer-inner { padding: 32px 20px 28px; }
     .ribbon { font-size: 12.5px; padding: 14px 16px; }
@@ -764,6 +782,17 @@
     </div>
   </div>
   </section>
+
+  <!-- feat-divider — mobile only ornament -->
+  <div class="feat-divider" aria-hidden="true">
+    <svg viewBox="0 0 120 24" fill="none" stroke="var(--green-700)" stroke-linecap="round" stroke-linejoin="round" style="width:120px;height:24px">
+      <line x1="4" y1="12" x2="44" y2="12" stroke-width="0.8" opacity="0.45"/>
+      <path d="M60 20 C 60 16, 59 12, 58 8" stroke-width="1.3"/>
+      <path d="M58 14 C 53 12, 50 8, 52 5 C 56 7, 58 11, 58 14Z" stroke-width="1.1" fill="var(--green-300)" fill-opacity="0.38"/>
+      <path d="M59 10 C 64 8, 67 4, 65 1 C 62 3, 59 7, 59 10Z" stroke-width="1.1" fill="var(--green-300)" fill-opacity="0.38"/>
+      <line x1="76" y1="12" x2="116" y2="12" stroke-width="0.8" opacity="0.45"/>
+    </svg>
+  </div>
 
   <!-- ══════════════ PRODUITS ══════════════ -->
   <section class="products" id="produits">
@@ -1003,10 +1032,16 @@
       <img src="ferme.png" alt="La ferme Les Petits Lapins du Poiron, Thorigny, Vendée" />
     </div>
     <div class="story-text">
+      <svg class="story-leaf-top" viewBox="0 0 44 28" fill="none" stroke="var(--green-700)" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 26 C 22 21, 21 16, 20 11" stroke-width="1.3"/>
+        <path d="M20 18 C 15 16, 12 11, 14 7 C 18 9, 20 14, 20 18Z" stroke-width="1.1" fill="var(--green-300)" fill-opacity="0.35"/>
+        <path d="M21 13 C 26 11, 29 6, 27 2 C 24 4, 21 9, 21 13Z" stroke-width="1.1" fill="var(--green-300)" fill-opacity="0.35"/>
+      </svg>
       <span class="script">Notre histoire</span>
-      <h2>Une ferme familiale,<br/>une <span class="accent">passion.</span></h2>
-      <p>Installés au Petit Poiron, à Thorigny en Vendée, nous sommes une EARL spécialisée dans l'élevage biologique du lapin depuis 2020. Nos lapins évoluent sur parcours herbeux, en plein air, sans intrants chimiques.</p>
-      <a href="#contact" class="btn">
+      <h2>Notre <span class="accent">engagement.</span></h2>
+      <p>Nous avons à cœur de vous proposer une viande de <strong>qualité</strong>, issue d'un <strong>élevage biologique</strong>, respectueux des animaux et de l'environnement.</p>
+      <p class="story-tagline"><em>Le goût du vrai, le respect du vivant.&nbsp;<svg class="sprig-svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green-700)"><path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/><path d="M12 17 C 8 15, 6 11, 7 8 C 10 9, 12 13, 12 17" stroke-width="1.2"/><path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/></svg></em></p>
+      <a href="#contact" class="btn story-cta">
         En savoir plus sur notre histoire
         <svg class="sprig-svg" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
           <path d="M14 24 C 14 20, 13 15, 12 10" stroke-width="1.4"/>
@@ -1014,7 +1049,6 @@
           <path d="M13 12 C 17 10, 20 6, 19 3 C 16 4, 13 8, 13 12" stroke-width="1.2"/>
         </svg>
       </a>
-
       <img class="story-bunny" src="deco-rabbit.png" alt="" aria-hidden="true" />
     </div>
   </section>
