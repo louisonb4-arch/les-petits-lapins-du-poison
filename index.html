@@ -162,25 +162,42 @@
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
   }
   .feature {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    gap: 12px; padding: 4px 24px;
+    display: flex; align-items: center; gap: 22px;
+    padding: 4px 30px;
     border-right: 1px solid var(--line);
   }
   .feature:last-child { border-right: none; }
   .feature .icon {
-    width: 64px; height: 64px;
-    background: rgba(106,138,58,0.12); border: none;
-    border-radius: 50%; overflow: visible;
-    display: grid; place-items: center;
-    color: var(--green-900); flex-shrink: 0;
+    width: 80px; height: 80px;
+    background: none; border: none;
+    border-radius: 50%; overflow: hidden;
+    flex-shrink: 0;
   }
-  .feature .icon svg { width: 30px; height: 30px; }
-  .feature h3 {
-    color: var(--green-900); font-size: 13px; font-weight: 700;
-    letter-spacing: 0.8px; text-transform: uppercase; margin: 0;
-    font-family: 'Inter', sans-serif;
+  .feature .icon img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; }
+  .feature h3 { color: var(--ink); font-size: 15px; font-weight: 600; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+  .feature p { color: var(--ink-soft); font-size: 12.5px; line-height: 1.45; opacity: 0.85; }
+
+  /* mobile-only features (mockup look) — desktop unchanged */
+  .feat-mob { display: none; }
+  .feat-mob .features-inner {
+    background: transparent; box-shadow: none; border-radius: 0;
+    grid-template-columns: repeat(3, 1fr); gap: 0; padding: 30px 2px 8px;
   }
-  .feature p { color: var(--ink-soft); font-size: 13px; line-height: 1.45; }
+  .feat-mob .feature {
+    flex-direction: column; align-items: center; text-align: center;
+    gap: 9px; padding: 0 7px; border-right: 1px solid var(--line);
+  }
+  .feat-mob .feature .icon {
+    width: 50px; height: 50px;
+    background: rgba(106,138,58,0.12); border-radius: 50%; overflow: visible;
+    display: grid; place-items: center; color: var(--green-900);
+  }
+  .feat-mob .feature .icon svg { width: 24px; height: 24px; }
+  .feat-mob .feature h3 {
+    color: var(--green-900); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase; margin: 0;
+  }
+  .feat-mob .feature p { color: var(--ink-soft); font-size: 10.5px; line-height: 1.35; opacity: 1; }
 
   /* ── products ── */
   section.products { background: var(--cream); width: 100%; position: relative; overflow: hidden; }
@@ -577,21 +594,10 @@
     .hero .btn { margin-top: 24px; }
     .hero .script { font-size: 23px; }
 
-    /* mobile features — 3-col row on cream, like mockup */
+    /* mobile — show mockup features, hide the desktop ones */
+    .feat-desk { display: none; }
+    .feat-mob { display: block; }
     .features { margin-top: 0; padding: 0 10px; }
-    .features-inner {
-      background: transparent; box-shadow: none; border-radius: 0;
-      grid-template-columns: repeat(3, 1fr); gap: 0; padding: 30px 2px 8px;
-    }
-    .feature {
-      flex-direction: column; align-items: center; text-align: center;
-      gap: 9px; padding: 0 7px;
-      border-right: 1px solid var(--line); border-bottom: none;
-    }
-    .feature .icon { width: 50px; height: 50px; }
-    .feature .icon svg { width: 24px; height: 24px; }
-    .feature h3 { font-size: 10px; letter-spacing: 0.4px; }
-    .feature p { font-size: 10.5px; line-height: 1.35; }
 
     .products-inner { padding: 48px 16px 56px; }
     .product-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -691,8 +697,35 @@
   </section>
 
 
-  <!-- ══════════════ FEATURES ══════════════ -->
-  <section class="features">
+  <!-- ══════════════ FEATURES (desktop/tablette — version d'origine) ══════════════ -->
+  <section class="features feat-desk">
+  <div class="features-inner">
+    <div class="feature">
+      <div class="icon"><img src="icon-elevage.png" alt="Élevage respectueux" /></div>
+      <div>
+        <h3>Élevage respectueux</h3>
+        <p>Bien-être animal<br/>et conditions naturelles</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="icon"><img src="icon-france.png" alt="Production locale" /></div>
+      <div>
+        <h3>Production locale</h3>
+        <p>Au cœur de la Vendée,<br/>circuits courts</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="icon"><img src="icon-alim.png" alt="Alimentation saine" /></div>
+      <div>
+        <h3>Alimentation saine</h3>
+        <p>Nourriture naturelle<br/>sans OGM</p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- ══════════════ FEATURES (mobile — façon mockup) ══════════════ -->
+  <section class="features feat-mob">
   <div class="features-inner">
     <div class="feature">
       <div class="icon">
