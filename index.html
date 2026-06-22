@@ -143,6 +143,7 @@
   .hero-inner-content { max-width: 540px; }
   .hero .script { font-size: 27px; color: var(--green-700); }
   .hero-script-leaf { display: none; width: 30px; height: 17px; vertical-align: -2px; margin-left: 8px; }
+  .br-mob { display: none; }
   .hero h1 { margin-top: 14px; color: var(--ink); }
   .hero h1 .accent { color: var(--green-700); }
   .hero p.lead { margin-top: 20px; max-width: 420px; font-size: 16px; color: var(--ink-soft); }
@@ -583,32 +584,32 @@
     .logo-img { width: 44px; height: 44px; }
     .logo-text .name { font-size: 12px; }
 
-    /* mobile hero — landscape hero.png shown full-width at bottom, full scene visible (mockup) */
-    .hero { height: auto; min-height: 96svh; display: block; position: relative; overflow: hidden; background: var(--cream); }
+    /* mobile hero — full-bleed cover photo, rabbit upper-right, text veiled left (handoff maquette) */
+    .hero { height: auto; min-height: 0; display: block; position: relative; overflow: hidden; background: var(--cream); }
     .hero-img { position: absolute; inset: 0; height: 100%; }
     .hero-img img {
-      position: absolute; left: 0; right: 0; bottom: 0; top: auto;
-      width: 202%; max-width: 202%; height: auto; object-fit: contain;
-      transform: translateX(-29%);
+      position: absolute; inset: 0;
+      width: 100%; max-width: 100%; height: 100%; object-fit: cover;
+      object-position: 55% 40%; transform: none;
     }
     .hero-img::after {
       display: block; content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
-        /* top strip — blend golden sky into the cream header seamlessly */
-        linear-gradient(180deg, var(--cream) 0%, rgba(248,242,228,0.6) 8%, rgba(248,242,228,0) 24%),
-        /* left→right cream wash keeps text legible, clears toward the rabbit on the right */
-        linear-gradient(90deg, var(--cream) 0%, rgba(248,242,228,0.85) 24%, rgba(248,242,228,0.4) 46%, rgba(248,242,228,0) 66%);
+        linear-gradient(180deg, var(--cream) 0%, rgba(248,242,228,0) 16%),
+        linear-gradient(100deg, var(--cream) 0%, rgba(248,242,228,0.92) 26%, rgba(248,242,228,0.35) 46%, rgba(248,242,228,0) 58%),
+        linear-gradient(0deg, var(--cream) 0%, rgba(248,242,228,0) 9%);
     }
     .hero-inner {
       position: relative; background: transparent;
-      padding: 26px 22px 48px; z-index: 1;
+      padding: 24px 22px 30px; z-index: 1;
     }
     .hero-inner-content { max-width: 100%; }
-    .hero h1 { font-size: 33px; margin-top: 12px; line-height: 1.1; }
-    .hero p.lead { font-size: 15px; margin-top: 14px; max-width: 100%; }
-    .hero .btn { margin-top: 24px; }
+    .hero h1 { font-size: 31px; margin-top: 12px; line-height: 1.06; }
+    .hero p.lead { font-size: 14.5px; margin-top: 14px; max-width: 205px; }
+    .hero .btn { margin-top: 22px; }
     .hero .script { font-size: 23px; }
     .hero-script-leaf { display: inline-block; }
+    .br-mob { display: inline; }
 
     /* mobile — show mockup features, hide the desktop ones */
     .feat-desk { display: none; }
@@ -709,7 +710,7 @@
           Agriculture Biologique · Certifié AB
         </div>
         <span class="script">De notre ferme à votre table<svg class="hero-script-leaf" viewBox="0 0 28 16" fill="none" stroke="var(--green-700)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13 C 9 11, 18 8, 26 3"/><path d="M13 9 C 12 6, 13 3, 16 2 C 17 5, 16 8, 13 9 Z" fill="var(--green-300)" fill-opacity="0.5"/><path d="M9 11 C 7 9, 7 6, 9 4 C 11 6, 11 9, 9 11 Z" fill="var(--green-300)" fill-opacity="0.5"/></svg></span>
-        <h1>Une viande saine,<br/>locale et <span class="accent">responsable.</span></h1>
+        <h1>Une viande saine,<br/>locale et<br class="br-mob"/> <span class="accent">responsable.</span></h1>
         <p class="lead">Nos lapins sont élevés avec soin, dans le respect de leur bien-être et de la nature.</p>
         <a href="#produits" class="btn">
           Découvrir nos produits
