@@ -583,15 +583,21 @@
     .logo-img { width: 44px; height: 44px; }
     .logo-text .name { font-size: 12px; }
 
-    /* mobile hero — portrait photo, text on top-left sky, rabbit right (mockup) */
-    .hero { height: auto; min-height: 96svh; display: block; position: relative; }
+    /* mobile hero — landscape hero.png shown full-width at bottom, full scene visible (mockup) */
+    .hero { height: auto; min-height: 96svh; display: block; position: relative; overflow: hidden; background: var(--cream); }
     .hero-img { position: absolute; inset: 0; height: 100%; }
-    .hero-img img { object-position: 65% top; }
+    .hero-img img {
+      position: absolute; left: 0; right: 0; bottom: 0; top: auto;
+      width: 202%; max-width: 202%; height: auto; object-fit: contain;
+      transform: translateX(-29%);
+    }
     .hero-img::after {
       display: block; content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(248,242,228,0.88) 0%, rgba(248,242,228,0.72) 14%, rgba(248,242,228,0.36) 32%, rgba(248,242,228,0) 54%),
-        linear-gradient(90deg, rgba(248,242,228,0.86) 0%, rgba(248,242,228,0.52) 34%, rgba(248,242,228,0.14) 55%, rgba(248,242,228,0) 68%);
+        /* top strip — blend golden sky into the cream header seamlessly */
+        linear-gradient(180deg, var(--cream) 0%, rgba(248,242,228,0.6) 8%, rgba(248,242,228,0) 24%),
+        /* left→right cream wash keeps text legible, clears toward the rabbit on the right */
+        linear-gradient(90deg, var(--cream) 0%, rgba(248,242,228,0.85) 24%, rgba(248,242,228,0.4) 46%, rgba(248,242,228,0) 66%);
     }
     .hero-inner {
       position: relative; background: transparent;
@@ -690,10 +696,7 @@
   <!-- ══════════════ HERO ══════════════ -->
   <section class="hero" id="accueil">
     <div class="hero-img" aria-hidden="true">
-      <picture>
-        <source media="(max-width: 600px)" srcset="hero-mobile.jpg" />
-        <img src="hero.png" alt="Lapin dans l'herbe au coucher du soleil" />
-      </picture>
+      <img src="hero.png" alt="Lapin dans l'herbe au coucher du soleil" />
     </div>
     <div class="hero-inner">
       <div class="hero-inner-content">
