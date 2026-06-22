@@ -552,17 +552,25 @@
     .logo-img { width: 44px; height: 44px; }
     .logo-text .name { font-size: 12px; }
 
-    .hero { height: auto; display: flex; flex-direction: column; }
-    .hero-img { position: relative; flex: none; height: 58vw; min-height: 260px; max-height: 400px; }
+    /* mobile hero — full-bleed image with text overlaid (like desktop) */
+    .hero { height: auto; min-height: 92vh; display: block; position: relative; }
+    .hero-img { position: absolute; inset: 0; height: 100%; }
+    .hero-img img { object-position: 62% center; }
+    .hero-img::after {
+      display: block; content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(180deg, var(--cream) 0%, rgba(248,242,228,0.82) 16%, rgba(248,242,228,0.30) 34%, rgba(248,242,228,0) 52%),
+        linear-gradient(90deg, rgba(248,242,228,0.80) 0%, rgba(248,242,228,0.32) 46%, rgba(248,242,228,0) 76%);
+    }
     .hero-inner {
-      position: relative; background: var(--cream);
-      padding: 32px 20px 40px; z-index: 1;
+      position: relative; background: transparent;
+      padding: 26px 22px 48px; z-index: 1;
     }
     .hero-inner-content { max-width: 100%; }
-    .hero h1 { font-size: 32px; margin-top: 10px; }
+    .hero h1 { font-size: 33px; margin-top: 12px; line-height: 1.1; }
     .hero p.lead { font-size: 15px; margin-top: 14px; max-width: 100%; }
-    .hero .btn { margin-top: 22px; }
-    .hero .script { font-size: 22px; }
+    .hero .btn { margin-top: 24px; }
+    .hero .script { font-size: 23px; }
 
     .features { margin-top: 0; padding: 0 16px; }
     .features-inner { border-radius: 14px; }
@@ -649,7 +657,7 @@
           </svg>
           Agriculture Biologique · Certifié AB
         </div>
-        <span class="script">De notre ferme a votre table</span>
+        <span class="script">De notre ferme à votre table</span>
         <h1>Une viande saine,<br/>locale et <span class="accent">responsable.</span></h1>
         <p class="lead">Nos lapins sont élevés avec soin, dans le respect de leur bien-être et de la nature.</p>
         <a href="#produits" class="btn">
