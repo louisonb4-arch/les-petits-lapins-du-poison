@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lapins-du-poiron.vercel.app/sitemap.xml
